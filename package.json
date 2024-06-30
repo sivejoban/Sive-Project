@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules//.bin//cypress run",
-    "headTest": "npm run test -- --headed",
-    "chromeTest": "npm run test -- --browser chrome",
-    "openTest": "npm run test -- --open",
-    "recordDashboardTest": "npm run test -- --record --key 715ad5eb-f8ca-444b-87bd-3830309fb194 --reporter mochawesome"
+    "headTest": "npm run test -- --headed"
+    
   },
   "author": "sive",
   "license": "ISC",
