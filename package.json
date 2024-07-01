@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules//.bin//cypress run",
-    "headTest": "npm run test -- --headed"
+    "headTest": "npm run test -- --headed",
+    "openTest": "cypress open",
+    "testIncognito": "cypress run --browser chrome --config chromeWebSecurity=false"
+
     
   },
   "author": "sive",
