@@ -24,20 +24,55 @@ describe('My First Test', function() {
 
      // Click on “UCITS Whitepaper”
      cy.get('.post-59806 > .elementor-post__card > .elementor-post__text > .elementor-post__title > a').click()
-     cy.scrollTo('bottom')
-      
+     
+    //  cy.scrollTo('bottom')
 
-      //Fill in first name
-      cy.get('#form-field-firstname').type('Sive')
+     cy.get('#onetrust-accept-btn-handler').click()
 
-      //Fill in last name
-      cy.get('#form-field-lastname').type('Nomvalo')
+    
+    cy.wait(5000)
+   
+    //Fill in First Name
+    cy.get('iframe[src="https://www2.kurtosys.com/l/18882/2020-06-04/bx16sd"]').its('0.contentDocument.body').find('#18882_231669pi_18882_231669')
+    .should('be.visible').then(cy.wrap)
+    .type('SIVE')
 
 
-      //Note : Upon clicking UCITS Whitepaper we only get three fields at the bottom which are : First Name . Last Name , Email and a button Subscribe. 
-      //Theres not field that reads for Company and Industry and theres no 'Send me a copy button' . I did not populate email since the instructions said to populate, I stopped after filling in Last Name
-      
+    //Fill in Last name
+    cy.get('iframe[src="https://www2.kurtosys.com/l/18882/2020-06-04/bx16sd"]').its('0.contentDocument.body').find('#18882_231671pi_18882_231671').type('NOMVALO')
+    
+      //Fill in Company
+    cy.get('iframe[src="https://www2.kurtosys.com/l/18882/2020-06-04/bx16sd"]').its('0.contentDocument.body').find('#18882_231675pi_18882_231675').type('NOMVALO COMPANY')
+
+    
+    cy.wait(1000)
+
+    //Fill IN INDUSTRY
+    cy.get('iframe[src="https://www2.kurtosys.com/l/18882/2020-06-04/bx16sd"]').its('0.contentDocument.body').find('#18882_231677pi_18882_231677').type('GAMING')
+    // cy.scrollTo('top')
+    cy.wait(1000)
+    //Click send me a copy
+    cy.get('iframe[src="https://www2.kurtosys.com/l/18882/2020-06-04/bx16sd"]').its('0.contentDocument.body').find('input[value="Send me a copy"]').click()
+    cy.scrollTo('top')
+   
+    cy.wait(5000)
+    
+ 
+  //Validate error message label
+   cy.get('iframe[src="https://www2.kurtosys.com/l/18882/2020-06-04/bx16sd"]').its('0.contentDocument.body').find('.error.no-label')
 
   
-    })
-  })
+   
+   
+       
+      });
+  });
+
+
+     
+    
+
+
+  
+
+  
